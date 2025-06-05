@@ -1,12 +1,9 @@
-// Toggle mobile nav (optional – can be expanded later)
-// Currently not active because we don't have a hamburger icon
-
-// Smooth scroll animation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
+      e.preventDefault();
       window.scrollTo({
         top: target.offsetTop - 60,
         behavior: 'smooth'
@@ -15,21 +12,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Basic form validation (client side)
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+// Add simple fade-in animation to elements on scroll
+const revealElements = document.querySelectorAll('.section, .photo-grid img');
 
-  const name = this.name.value.trim();
-  const email = this.email.value.trim();
-  const message = this.message.value.trim();
+const revealOnScroll = () => {
+  revealElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    const revealPoint = 100;
+    if (rect.top < window.innerHeight - revealPoint) {
+      el.classList.add('active');
+    }
+  });
+};
 
-  if (!name || !email || !message) {
-    alert("Please fill out all fields.");
-    return;
-  }
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-  // For now: simulate sending message
-  alert("Thanks for your message, " + name + "!");
-
-  this.reset();
+// Optional: Button click animation feedback
+document.querySelectorAll('button, .btn').forEach(button => {
+  button.addEventListener('click', () => {
+    button.classList.add('clicked');
+    setTimeout(() => {
+      button.classList.remove('clicked');
+    }, 200);
+  });
 });
