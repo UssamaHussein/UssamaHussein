@@ -1,19 +1,29 @@
-/* ========== BASE STYLES ========== */
+/* ========== FONTS ========== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FDFBCF;
+  color: #4A4A4A;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Headings with Retro Voice style (simulated) */
+h1, h2 {
+  font-family: 'Playfair Display SC', serif;
+  text-transform: uppercase;
+  color: #000052;
+}
+
+/* ========== GLOBAL RESETS ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #fdfaf5; /* Cream */
-  color: #111;
-  line-height: 1.6;
+img {
+  max-width: 100%;
+  border-radius: 12px;
 }
 
 a {
@@ -25,25 +35,22 @@ ul {
   list-style: none;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
 /* ========== NAVBAR ========== */
 .navbar {
+  background-color: #000052;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #000; /* Black */
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .logo img {
   height: 40px;
+  max-height: 100%;
+  width: auto;
 }
 
 .nav-links {
@@ -52,25 +59,20 @@ img {
 }
 
 .nav-links a {
-  color: #fdfaf5; /* Cream */
+  color: #FDFBCF;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #d4af37; /* Gold */
+  color: gold;
 }
 
-/* ========== HERO SECTION ========== */
+/* ========== HERO ========== */
 .hero {
-  height: 100vh;
-  background: linear-gradient(120deg, #000 60%, #d4af37 40%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fdfaf5;
-  padding: 2rem;
+  background-color: #000052;
+  color: #FDFBCF;
+  padding: 5rem 2rem 3rem;
 }
 
 .hero h1 {
@@ -79,134 +81,85 @@ img {
 }
 
 .hero p {
-  font-size: 1.2rem;
   margin-top: 1rem;
+  font-size: 1.25rem;
   font-style: italic;
 }
 
-/* ========== SECTIONS ========== */
+/* ========== SOCIALS ========== */
+.socials-section,
+footer .socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  font-weight: bold;
+  color: #000052;
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: gold;
+}
+
+/* ========== WHO IS USSAMA ========== */
 .section {
   padding: 4rem 2rem;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 960px;
   margin: auto;
 }
 
-h2 {
-  font-size: 2rem;
-  color: #0c1b33; /* Navy */
-  margin-bottom: 1.5rem;
-  text-align: center;
-  text-transform: uppercase;
+#who-ussama p {
+  font-size: 1.05rem;
+  padding: 0 1rem;
 }
 
-ul li {
-  margin-bottom: 0.5rem;
-  padding-left: 1rem;
-  position: relative;
-}
-
-ul li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: #d4af37; /* Gold */
-}
-
-/* ========== BUTTON ========== */
-.btn {
-  display: inline-block;
-  background-color: #000;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  transition: background 0.3s ease;
-  margin-top: 1rem;
-}
-
-.btn:hover {
-  background-color: #0c1b33; /* Navy */
-}
-
-/* ========== CONTACT FORM ========== */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-input,
-textarea {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
-button[type="submit"] {
-  background-color: #d4af37;
-  color: #000;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button[type="submit"]:hover {
-  background-color: #b8982e;
-}
-
-/* ========== SOCIAL LINKS ========== */
-.socials {
-  display: flex;
-  justify-content: center;
+/* ========== PHOTO GRID ========== */
+.photo-grid .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   margin-top: 2rem;
 }
 
-.socials a {
-  color: #0c1b33;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.socials a:hover {
-  color: #d4af37;
-}
-
 /* ========== FOOTER ========== */
 footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: #000;
-  color: #fff;
+  padding: 2rem 1rem;
+  background-color: #000052;
+  color: #FDFBCF;
   font-size: 0.9rem;
+}
+
+/* ========== BUTTONS ========== */
+button, .btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #000052;
+  color: #FDFBCF;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  background-color: gold;
+  color: #000;
+  transform: scale(1.05);
 }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
-    background: #000;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    display: none;
-    padding: 1rem;
-  }
-
-  .nav-links.active {
-    display: flex;
+    gap: 0.75rem;
   }
 
   .hero h1 {
@@ -216,12 +169,23 @@ footer {
   .hero p {
     font-size: 1rem;
   }
+}
+/* Reveal animation */
+.section,
+.photo-grid img {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
 
-  .navbar {
-    flex-wrap: wrap;
-  }
+.section.active,
+.photo-grid img.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .logo img {
-    height: 32px;
-  }
+/* Click animation */
+button.clicked,
+.btn.clicked {
+  transform: scale(0.95);
 }
